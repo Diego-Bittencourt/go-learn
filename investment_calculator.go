@@ -6,31 +6,26 @@ import (
 )
 
 func main() {
-	//using the variable declaration recommendations
-	// var investmentAmount float64 = 1000
-	// var years float64 = 10
-	// var expectedReturnRate float64 = 5.5
-
-	var investmentAmount, years float64 = 1000, 10
+	const inflationRate = 2.5 //a constant can not be changed once declared
+	var years float64
+	var investmentAmount float64 //the variable is declared but it has no value. In this case, this variable will receive a null value that, in float64, it is 0.0
 	expectedReturnRate := 5.5
 
-	// var futureValue = float64(investmentAmount) * math.Pow(1+expectedReturnRate/100, float64(years))
+	fmt.Print("Please, enter your investment: ")
+
+	// the Scan() function gets input from the user. You need to pass a variable as first argument, but only the pointer, which you do by adding he & symbol in front of it
+	fmt.Scan(&investmentAmount) // there is one limitation for fmt.Scan which is that it can only handle single words input. You can not use it to get phrases or complete sentences
+
+	fmt.Print("Please, type the time, in years: ")
+	fmt.Scan(&years)
+
+	fmt.Print("Please, type the return rate: ")
+	fmt.Scan(&expectedReturnRate)
+
 	var futureValue float64 = investmentAmount * math.Pow(1+expectedReturnRate/100, years)
 
+	futureRealValue := futureValue / math.Pow(1+inflationRate/100, years)
+
 	fmt.Println(futureValue)
+	fmt.Println(futureRealValue)
 }
-
-// About naming conventions:
-//   - The file names, it is usual to use snake_case
-//   - The module address it is usual to use kebab-case (like an url)
-//   - variable names are usual camelCase
-
-// Typing
-// You can let Go guess the data type or set the type by writing the type after the variable
-
-// Variables
-// If you are not going to set the variable's type and want Go to set the variable's type, you should (recommended) use the following variable declaration shortcut
-// instead of
-// 		var variable = 1.5
-// You should use
-// 		variable := 1.5
