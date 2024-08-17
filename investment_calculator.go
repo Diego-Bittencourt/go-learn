@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-func main() {
+func investmentCalculator() {
 	const inflationRate = 2.5 //a constant can not be changed once declared
 	var years float64
 	var investmentAmount float64 //the variable is declared but it has no value. In this case, this variable will receive a null value that, in float64, it is 0.0
