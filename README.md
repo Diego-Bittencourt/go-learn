@@ -36,6 +36,20 @@ Functions
     - Declare the function outside main()
     - Unlike many programming languages, you can return more than one value from a function, by separating them by a comma
 
+If statements
+    - The if statements is started by the keyword if followed by the conditional (the conditional is not wrapped in parenthesis). The conditionals can be stacked by using && (and) or || (or) operators. Then, curly braces holding the code to be run in case the condition is true.
+    - If statements can be connected by if else and else keywords
+
+Loops
+    - In Go, there is only the for loop, which is very flexible.
+    - The loop starts with the `for` keyword following by the validation, without parenthesis. The validation can follow the for or loop, like javascript (i := 0; i < 2; i++) or a conditional to behave like a while loop. 
+
+Switch
+    - Switch statements, in Go, receives a variable (without parenthesis) and add the cases, including the default, inside curly braces.
+    - There is no need to add the `break` keyword after each case because Switches in Go only accept one case.
+    - After each case value, add : and the code after that.
+    - The `break` keywords jumps out from te switch code. 
+
 fmt package
     - The fmt package is a built-in package in GO that has a lot useful functions including the following
         -> fmt.Print() - prints a value in the console the way it is
