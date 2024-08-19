@@ -50,6 +50,11 @@ Switch
     - After each case value, add : and the code after that.
     - The `break` keywords jumps out from te switch code. 
 
+Errors
+    - Differently from other programming languages, errors in Go don't usually break the application. Usually, the error generates a error object but the application continues to run
+    - Errors can be identified if they are different from nil
+    - panic() function breaks the application and shows a error message
+
 fmt package
     - The fmt package is a built-in package in GO that has a lot useful functions including the following
         -> fmt.Print() - prints a value in the console the way it is

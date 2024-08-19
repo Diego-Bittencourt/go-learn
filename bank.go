@@ -1,9 +1,45 @@
 package main
 
-import "fmt"
+import (
+	"errors" //package responsible for creating errors
+	"fmt"
+	"os"      //package that can interact with the system
+	"strconv" //string conversion
+)
+
+const balanceFileName = "balance.txt"
+
+func writeBalanceToFile(balance float64) {
+	balanceString := fmt.Sprint(balance)                       //saving the float into string
+	os.WriteFile(balanceFileName, []byte(balanceString), 0644) //[]byte means a collection of bytes.
+}
+
+func readBalanceFromFile() (float64, error) {
+	valueFromFile, err := os.ReadFile(balanceFileName)
+	if err != nil {
+		//nil is a value that the error receives if there are no errors
+		fmt.Println(err)
+		return 1000, errors.New("the file was not found")
+	}
+	valueFloat := string(valueFromFile) //converting to string because float64 does not work with byte
+	balanceFloat, err := strconv.ParseFloat(valueFloat, 64)
+
+	if err != nil {
+		return 1000, errors.New("failed to read the file content")
+	}
+	return balanceFloat, nil
+}
 
 func bank() {
-	var accountBalance float64 = 1000
+	var accountBalance, err = readBalanceFromFile()
+
+	if err != nil {
+		fmt.Println("ERROR OCURRED")
+		fmt.Println(err)
+		fmt.Println("-----------------------------------------")
+		// panic("the application could't proceed. Please get in touch with the support")
+		//The panic() function breaks the application and gives a messages that looks more like an error
+	}
 	var isItRunning bool = true
 	fmt.Println("Welcome to the Go Bank Services")
 	for isItRunning {
@@ -46,6 +82,6 @@ func bank() {
 		}
 		fmt.Println("----------------------------------")
 	}
-
+	writeBalanceToFile(accountBalance)
 	fmt.Println("Thank you for using our services")
 }
