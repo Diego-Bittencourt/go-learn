@@ -55,6 +55,14 @@ Errors
     - Errors can be identified if they are different from nil
     - panic() function breaks the application and shows a error message
 
+Packages
+    - Code that belongs to the same package can be called in other files without the need to import it.
+    - If you need to use or create a different package, you need to create a folder that matches the new package name. Import the package by adding the mod's address before the package name like "my-example.com/my-package".
+    - Only functions and variables that has a capital letter at the name can be exported and used in different packages. 
+    - To use a variable or a function from a different package, just import the package (using the address before the name) and call the variable/object like an object notation.
+    - To install a third party package, just run the command (usually `go get example.com/third-party-package`) and the package will be installed globally in your system
+    - The packages you are using are described in your mod file using the keyword `require`. `go get` with no package will install all packages in your mod file.
+
 fmt package
     - The fmt package is a built-in package in GO that has a lot useful functions including the following
         -> fmt.Print() - prints a value in the console the way it is

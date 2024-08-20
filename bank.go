@@ -1,37 +1,15 @@
 package main
 
 import (
-	"errors" //package responsible for creating errors
 	"fmt"
-	"os"      //package that can interact with the system
-	"strconv" //string conversion
+
+	"investment-calculator.com/fileops"
 )
 
 const balanceFileName = "balance.txt"
 
-func writeBalanceToFile(balance float64) {
-	balanceString := fmt.Sprint(balance)                       //saving the float into string
-	os.WriteFile(balanceFileName, []byte(balanceString), 0644) //[]byte means a collection of bytes.
-}
-
-func readBalanceFromFile() (float64, error) {
-	valueFromFile, err := os.ReadFile(balanceFileName)
-	if err != nil {
-		//nil is a value that the error receives if there are no errors
-		fmt.Println(err)
-		return 1000, errors.New("the file was not found")
-	}
-	valueFloat := string(valueFromFile) //converting to string because float64 does not work with byte
-	balanceFloat, err := strconv.ParseFloat(valueFloat, 64)
-
-	if err != nil {
-		return 1000, errors.New("failed to read the file content")
-	}
-	return balanceFloat, nil
-}
-
 func bank() {
-	var accountBalance, err = readBalanceFromFile()
+	var accountBalance, err = fileops.ReadFloatFromFile(balanceFileName)
 
 	if err != nil {
 		fmt.Println("ERROR OCURRED")
@@ -82,6 +60,6 @@ func bank() {
 		}
 		fmt.Println("----------------------------------")
 	}
-	writeBalanceToFile(accountBalance)
+	fileops.WriteFloatToFile(balanceFileName, accountBalance)
 	fmt.Println("Thank you for using our services")
 }
