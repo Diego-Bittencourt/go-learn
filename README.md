@@ -68,7 +68,8 @@ Struct
     - It is a common practice to create an utility function to work as a constructor that returns a struct or a pointer to the struct. With this approach, you can create validation code
     - You can omit the properties name if you declare the properties in the same order as the type. 
     - Keep in mind that, when using a struct, you can pass the struct (which creates a copy in memory) or its pointer.
-    - 
+    - Struct don't have classes or inheritance, but you can simulate the last by creating a new type and passing another type inside the first type's properties.
+    - Struct can have tags that are metadata that can be accessed by the code. They can be added by adding backticks after the property declaration  with a key value pair. But you need to make code to use the tags or use a package that uses these tags.
 
 Packages
     - Code that belongs to the same package can be called in other files without the need to import it.

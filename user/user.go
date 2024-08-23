@@ -18,13 +18,6 @@ type User struct {
 	createdAt time.Time
 }
 
-// the type keyword can also be used to create an alias for another type.
-// with that functionality, you can methods and assign the methods to other type, even the primitive types.
-type str string
-
-func (str str) log() {
-	fmt.Println(str)
-}
 
 // creating a constructor function.
 // this is not a built-in functionality, bot more of a common practice
