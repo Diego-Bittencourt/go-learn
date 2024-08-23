@@ -49,11 +49,26 @@ Switch
     - There is no need to add the `break` keyword after each case because Switches in Go only accept one case.
     - After each case value, add : and the code after that.
     - The `break` keywords jumps out from te switch code. 
+    - Go allows a shortcut. When you pass a pointer to a function, you can use the value the pointer is referring to without the need of * (derreferencing) it.
 
 Errors
     - Differently from other programming languages, errors in Go don't usually break the application. Usually, the error generates a error object but the application continues to run
     - Errors can be identified if they are different from nil
     - panic() function breaks the application and shows a error message
+
+Pointers
+    - Pointers are the address of a value stored in memory on a hexadecimal based number.
+    - Let's say we have a variable called myVariable
+    - To pass a pointer (to a function and etc) just add the `&` keyword before the variable name -> &myVariable
+    - Once passed a pointer, to use the pointer to get the value the pointer is referring, use the keyword `*` before the variable -> *myPointer
+
+Struct
+    - Structs are elements that contain one or more properties that are related together.
+    - To create a Struct, you need to declare a Struct type (like a class) and create an instance in the code by using `myStruct{}` pattern. The properties are assign inside the curly braces separated by a comma.
+    - It is a common practice to create an utility function to work as a constructor that returns a struct or a pointer to the struct. With this approach, you can create validation code
+    - You can omit the properties name if you declare the properties in the same order as the type. 
+    - Keep in mind that, when using a struct, you can pass the struct (which creates a copy in memory) or its pointer.
+    - 
 
 Packages
     - Code that belongs to the same package can be called in other files without the need to import it.
