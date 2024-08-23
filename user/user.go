@@ -12,12 +12,11 @@ import (
 type User struct {
 	//both the struct name and the properties can be exported if their name start with a capital letter.
 	//You can export the struct but keep the properties not exported by leaving the properties names on lower case
-	firstName string
+	firstName string `json:"first_name"`
 	lastName  string
 	birthDate string
 	createdAt time.Time
 }
-
 
 // creating a constructor function.
 // this is not a built-in functionality, bot more of a common practice
