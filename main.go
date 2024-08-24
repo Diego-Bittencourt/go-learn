@@ -7,10 +7,12 @@ import (
 	"strings"
 
 	"example.com/note/note"
+	"example.com/note/todo"
 )
 
 func main() {
 	title, content := getNoteData()
+	todoContent := getUserInput("Todo content: ")
 
 	userNote, err := note.New(title, content)
 
@@ -18,6 +20,23 @@ func main() {
 		fmt.Println(err)
 		return
 	}
+
+	userTodo, err := todo.New(todoContent)
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	userTodo.Display()
+	err = userTodo.Save()
+
+	if err != nil {
+		fmt.Println("Saving the todo failed.")
+		return
+	}
+
+	fmt.Println("Saving the todo succeeded!")
 
 	userNote.Display()
 	err = userNote.Save()
