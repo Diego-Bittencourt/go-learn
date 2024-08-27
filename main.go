@@ -10,6 +10,10 @@ import (
 	"example.com/note/todo"
 )
 
+type saver interface {
+}
+
+// to create a interface, we use the type keyword
 func main() {
 	title, content := getNoteData()
 	todoContent := getUserInput("Todo content: ")

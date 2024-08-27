@@ -55,6 +55,9 @@ Errors
     - Errors can be identified if they are different from nil
     - panic() function breaks the application and shows a error message
 
+Interfaces
+    - Sometimes you might need to write a function to perform similar task for different types. In that case you can not set the arguments to many different types. Therefore the use of interfaces is beneficial
+
 Packages
     - Code that belongs to the same package can be called in other files without the need to import it.
     - If you need to use or create a different package, you need to create a folder that matches the new package name. Import the package by adding the mod's address before the package name like "my-example.com/my-package".
